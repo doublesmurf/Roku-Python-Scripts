@@ -1,0 +1,18 @@
+import getpass
+from pickle import STOP
+import telnetlib
+from tracemalloc import stop
+
+tn = telnetlib.Telnet("10.14.128.49",8080) #  Change IP to device
+
+Astr = tn.read_until(b"Uv7LYYXoe3",1)
+
+tn.write(b"country us\r\n")  #  Change to Country needed
+print("SENT: country us\n")  #  Change to Country
+Astr = tn.read_until(b">",10)  #  wait for ">" or 10 seconds, usually takes 6.25 secs
+print("RECEIVED: ")
+print(Astr)
+print("\r\n")
+
+# input('Press Enter key')
+quit
