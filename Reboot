@@ -1,0 +1,18 @@
+mport getpass
+from pickle import STOP
+import telnetlib
+from tracemalloc import stop
+
+tn = telnetlib.Telnet("10.14.128.49",8080)  # Change to your IP
+
+Astr = tn.read_until(b"Uv7LYYXoe3",1)
+
+tn.write(b"reboot\r\n")
+print("SENT: reboot\n")
+Astr = tn.read_until(b"Uv7LYYXoe3",1)
+print("RECEIVED: ")
+print(Astr)
+print("\r\n")
+
+# input('Press Enter key')
+quit
