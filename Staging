@@ -1,0 +1,23 @@
+import getpass
+from pickle import STOP
+import telnetlib
+from tracemalloc import stop
+
+print("working...")
+
+# log into the Roku box
+tn = telnetlib.Telnet("10.14.128.49",8080) # Change to your IP
+Astr = tn.read_until(b"LarryTate",1)
+
+# set server
+tn.write(b"config_set gc.dfp.ad-srv staging3\r\n")
+Astr = tn.read_until(b"LarryTate",1)
+Astr = Astr.decode('utf-8') # convert from byte_string to normal string
+
+#print()
+#print("RAW:")
+#print(Astr)
+
+#print()
+#input('Press Enter key')
+quit
